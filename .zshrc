@@ -12,9 +12,30 @@ HISTSIZE=10000
 SAVEHIST=10000
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git vscode aws zsh-autosuggestions zsh-syntax-highlighting zaw \
-        kubectl kubectx helm brew golang rust docker docker-compose \
-        pre-commit zoxide terraform 1password vi-mode gh git git-commit asdf)
+plugins=(
+  1password
+  asdf
+  aws
+  brew
+  docker
+  docker-compose
+  gh
+  git
+  git-commit
+  golang
+  helm
+  kubectl
+  kubectx
+  pre-commit
+  rust
+  terraform
+  vi-mode
+  vscode
+  zoxide
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  zaw
+)
 
 export TERM="xterm-256color"
 export ZSH="${HOME}/.oh-my-zsh"

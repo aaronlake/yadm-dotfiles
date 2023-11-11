@@ -8,6 +8,9 @@
   email = aaron.lake@gmail.com
   name = Aaron Lake
 
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+
 [init]
   defaultBranch = main
 

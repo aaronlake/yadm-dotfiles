@@ -8,10 +8,8 @@ alias kx="kubectx"
 alias kns="kubens"
 alias kxns="kubectx && kubens"
 alias gadj="git add . && just"
-alias tf="terraform"
-alias tfp="terraform plan"
-alias tfa="terraform apply"
-alias tfi="terraform init"
 alias ai="gh copilot suggest -t shell"
 
 alias getip="curl icanhazip.com"
+alias brewlatest='gh search prs --repo Homebrew/homebrew-core --label "new formula" --state closed --checks success'
+alias getbastion="aws ec2 describe-instances --filters \"Name=tag:Name,Values=*bastion*\" | jq -r \".Reservations[0].Instances[0].InstanceId\""

@@ -33,20 +33,6 @@ eval "$(github-copilot-cli alias -- "$0")"
 
 source $ZSH/oh-my-zsh.sh
 
-alias ls="eza --color always"
-alias vim="lvim"
-alias vi="lvim"
-alias k="kubectl"
-alias kx="kubectx"
-alias kns="kubens"
-alias kxns="kubectx && kubens"
-alias gadj="git add . && just"
-alias tf="terraform"
-alias tfp="terraform plan"
-alias tfa="terraform apply"
-alias tfi="terraform init"
-alias ai="gh copilot suggest -t shell"
-
 if [[ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]]; then
   source /opt/homebrew/opt/asdf/libexec/asdf.sh
 fi

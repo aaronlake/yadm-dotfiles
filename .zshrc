@@ -22,6 +22,10 @@ export LANG=en_US.UTF-8
 export HISTFILESIZE=1000000
 export HISTSIZE=1000000
 
+if [[ -f ~/.aliases ]]; then
+  source ~/.aliases
+fi
+
 PATH="/opt/homebrew/bin/python3:${PATH}"
 PATH="/Users/alake/.local/bin:${PATH}"
 PATH="${PATH}:${HOME}/.cargo/bin"

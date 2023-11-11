@@ -1,0 +1,15 @@
+[credential "https://github.com"]
+	helper = !gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper = !gh auth git-credential
+
+[user]
+	email = aaron.lake@gmail.com
+	name = Aaron Lake
+
+[init]
+  defaultBranch = main
+
+[core]
+  editor = vim

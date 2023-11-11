@@ -1,0 +1,17 @@
+# shellcheck shell=sh
+
+command -v eza > /dev/null || aliass ls="eza --color always"
+command -v lvim > /dev/null || alias vim="lvim"
+command -v lvim > /dev/null || alias vi="lvim"
+alias k="kubectl"
+alias kx="kubectx"
+alias kns="kubens"
+alias kxns="kubectx && kubens"
+alias gadj="git add . && just"
+alias tf="terraform"
+alias tfp="terraform plan"
+alias tfa="terraform apply"
+alias tfi="terraform init"
+alias ai="gh copilot suggest -t shell"
+
+alias getip="curl icanhazip.com"

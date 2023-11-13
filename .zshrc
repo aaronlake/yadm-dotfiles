@@ -1,6 +1,10 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+function source_if_exists() {
+  if [[ -f $1 ]]; then
+    source $1
+  fi
+}
+
+source_if_exists "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 
 setopt appendhistory autocd beep notify
 unsetopt extendedglob nomatch
@@ -10,8 +14,17 @@ bindkey '^R' history-incremental-search-backward
 HISTFILE=~/.cache/zsh-histfile
 HISTSIZE=10000
 SAVEHIST=10000
-ZSH_THEME="powerlevel10k/powerlevel10k"
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+setopt INC_APPEND_HISTORY
 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' insert-tab pending
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   1password
   asdf
@@ -44,9 +57,7 @@ export LANG=en_US.UTF-8
 export HISTFILESIZE=1000000
 export HISTSIZE=1000000
 
-if [[ -f ~/.aliases ]]; then
-  source ~/.aliases
-fi
+source_if_exists "${HOME}/.aliases"
 
 PATH="/opt/homebrew/bin/python3:${PATH}"
 PATH="/Users/alake/.local/bin:${PATH}"
@@ -55,19 +66,9 @@ PATH="${PATH}:${HOME}/.cargo/bin"
 autoload -Uz compinit
 compinit -d ~/.cache/zcompdump
 
-source $ZSH/oh-my-zsh.sh
-
-if [[ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]]; then
-  source /opt/homebrew/opt/asdf/libexec/asdf.sh
-fi
-
-if [[ -f "${HOME}/.agent-bridge.sh" ]]; then
-  source "${HOME}/.agent-bridge.sh"
-fi
-
-if [[ -f "${HOME}/.config/broot/launcher/bash/br" ]]; then
-  source "${HOME}/.config/broot/launcher/bash/br"
-fi
+source_if_exists "$ZSH/oh-my-zsh.sh"
+source_if_exists "/opt/homebrew/opt/asdf/libexec/asdf.sh"
+source_if_exists "${HOME}/.agent-bridge.sh"
+source_if_exists "${HOME}/.config/broot/launcher/bash/br"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-

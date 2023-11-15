@@ -72,3 +72,5 @@ source_if_exists "${HOME}/.agent-bridge.sh"
 source_if_exists "${HOME}/.config/broot/launcher/bash/br"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+eval "$(atuin init zsh)"

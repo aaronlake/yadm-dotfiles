@@ -71,6 +71,7 @@ source_if_exists "/home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh"
 source_if_exists "${HOME}/.agent-bridge.sh"
 source_if_exists "${HOME}/.config/broot/launcher/bash/br"
 
+command -v atuin >> /dev/null && eval "$(atuin init zsh)"
+
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-eval "$(atuin init zsh)"

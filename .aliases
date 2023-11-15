@@ -1,6 +1,6 @@
 # shellcheck shell=sh
 
-command -v eza > /dev/null || aliass ls="eza --color always"
+command -v eza > /dev/null || alias ls="eza --color always"
 command -v lvim > /dev/null || alias vim="lvim"
 command -v lvim > /dev/null || alias vi="lvim"
 alias k="kubectl"

@@ -9,7 +9,7 @@ source_if_exists "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}
 setopt appendhistory autocd beep notify
 unsetopt extendedglob nomatch
 bindkey -v
-bindkey '^R' history-incremental-search-backward
+bindkey '^r' _atuin_search_widget
 
 HISTFILE=~/.cache/zsh-histfile
 HISTSIZE=10000
@@ -23,6 +23,8 @@ setopt INC_APPEND_HISTORY
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' insert-tab pending
+zstyle ':omz:update' mode auto
+zstyle ':omz:update' frequency 13
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
@@ -56,8 +58,6 @@ export LANG=en_US.UTF-8
 export HISTFILESIZE=1000000
 export HISTSIZE=1000000
 
-source_if_exists "${HOME}/.aliases"
-
 PATH="/opt/homebrew/bin/python3:${PATH}"
 PATH="${HOME}/.local/bin:${PATH}"
 PATH="${PATH}:${HOME}/.cargo/bin"
@@ -65,9 +65,9 @@ PATH="${PATH}:${HOME}/.cargo/bin"
 autoload -Uz compinit
 compinit -d ~/.cache/zcompdump
 
+source_if_exists "${HOME}/.aliases"
 source_if_exists "$ZSH/oh-my-zsh.sh"
-source_if_exists "/opt/homebrew/opt/asdf/libexec/asdf.sh"
-source_if_exists "/home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh"
+source_if_exists "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh"
 source_if_exists "${HOME}/.agent-bridge.sh"
 source_if_exists "${HOME}/.config/broot/launcher/bash/br"
 

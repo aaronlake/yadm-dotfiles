@@ -27,7 +27,6 @@ zstyle ':completion:*' insert-tab pending
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   1password
-  asdf
   aws
   brew
   docker
@@ -60,7 +59,7 @@ export HISTSIZE=1000000
 source_if_exists "${HOME}/.aliases"
 
 PATH="/opt/homebrew/bin/python3:${PATH}"
-PATH="/Users/alake/.local/bin:${PATH}"
+PATH="${HOME}/.local/bin:${PATH}"
 PATH="${PATH}:${HOME}/.cargo/bin"
 
 autoload -Uz compinit
@@ -68,6 +67,7 @@ compinit -d ~/.cache/zcompdump
 
 source_if_exists "$ZSH/oh-my-zsh.sh"
 source_if_exists "/opt/homebrew/opt/asdf/libexec/asdf.sh"
+source_if_exists "/home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh"
 source_if_exists "${HOME}/.agent-bridge.sh"
 source_if_exists "${HOME}/.config/broot/launcher/bash/br"
 

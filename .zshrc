@@ -60,18 +60,21 @@ export HISTSIZE=1000000
 
 PATH="/opt/homebrew/bin/python3:${PATH}"
 PATH="${HOME}/.local/bin:${PATH}"
+PATH="${PATH}:${BMA_HOME:-$HOME/.bash-my-aws}/bin"
 PATH="${PATH}:${HOME}/.cargo/bin"
-
-autoload -Uz compinit
-compinit -d ~/.cache/zcompdump
 
 source_if_exists "${HOME}/.aliases"
 source_if_exists "$ZSH/oh-my-zsh.sh"
 source_if_exists "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh"
 source_if_exists "${HOME}/.agent-bridge.sh"
 source_if_exists "${HOME}/.config/broot/launcher/bash/br"
+source_if_exists "${BMA_HOME:-$HOME/.bash-my-aws}/aliases"
 
 command -v atuin >> /dev/null && eval "$(atuin init zsh)"
+
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+compinit -d ~/.cache/zcompdump
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 

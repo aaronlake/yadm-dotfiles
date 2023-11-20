@@ -69,6 +69,7 @@ source_if_exists "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh"
 source_if_exists "${HOME}/.agent-bridge.sh"
 source_if_exists "${HOME}/.config/broot/launcher/bash/br"
 source_if_exists "${BMA_HOME:-$HOME/.bash-my-aws}/aliases"
+source_if_exists "${HOME}/.inshellisense/key-bindings.zsh"
 
 command -v atuin >> /dev/null && eval "$(atuin init zsh)"
 
@@ -78,5 +79,3 @@ compinit -d ~/.cache/zcompdump
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
-[ -f ~/.inshellisense/key-bindings.zsh ] && source ~/.inshellisense/key-bindings.zsh

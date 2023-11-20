@@ -75,3 +75,5 @@ command -v atuin >> /dev/null && eval "$(atuin init zsh)"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
+[ -f ~/.inshellisense/key-bindings.zsh ] && source ~/.inshellisense/key-bindings.zsh

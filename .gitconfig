@@ -41,3 +41,5 @@
 [color "branch"]
 	current = green
 	remote = yellow
+[pull]
+	rebase = false

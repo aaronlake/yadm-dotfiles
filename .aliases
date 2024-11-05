@@ -1,5 +1,11 @@
 # shellcheck shell=sh
 
+function alias_if_exists() {
+  if command -v "$2" > /dev/null; then
+    alias "$1"="$2 ${3:-}"
+  fi
+}
+
 command -v eza > /dev/null && alias ls="eza --color always"
 command -v lvim > /dev/null && alias vim="lvim"
 command -v lvim > /dev/null && alias vi="lvim"
@@ -9,6 +15,11 @@ alias kns="kubens"
 alias kxns="kubectx && kubens"
 alias gadj="git add . && just"
 alias ai="gh copilot suggest -t shell"
+alias_if_exists "vim" "nvim"
+alias_if_exists "vi" "nvim"
+alias_if_exists "ls" "eza" "--color=always --icons=always"
+alias_if_exists "ll" "eza" "--color=always --icons=always -l"
+alias_if_exists "la" "eza" "--color=always --icons=always -la"
 
 alias getip="curl icanhazip.com"
 alias brewlatest='gh search prs --repo Homebrew/homebrew-core --label "new formula" --state closed --checks success'

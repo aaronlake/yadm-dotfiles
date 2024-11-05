@@ -13,9 +13,6 @@ unsetopt extendedglob nomatch
 bindkey -v
 bindkey '^r' _atuin_search_widget
 
-HISTFILE=~/.cache/zsh-histfile
-HISTSIZE=10000
-SAVEHIST=10000
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
@@ -57,6 +54,7 @@ export TERM="xterm-256color"
 export ZSH="${HOME}/.oh-my-zsh"
 export VIRTUAL_ENV_DISABLE_PROMPT=0
 export LANG=en_US.UTF-8
+export HISTFILE=~/.cache/zsh-histfile
 export HISTFILESIZE=1000000
 export HISTSIZE=1000000
 
@@ -65,7 +63,6 @@ PATH="${HOME}/.local/bin:${PATH}"
 PATH="${PATH}:${BMA_HOME:-$HOME/.bash-my-aws}/bin"
 PATH="${PATH}:${HOME}/.cargo/bin"
 
-source_if_exists "${HOME}/.aliases"
 source_if_exists "$ZSH/oh-my-zsh.sh"
 source_if_exists "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh"
 source_if_exists "${HOME}/.agent-bridge.sh"
@@ -73,6 +70,7 @@ source_if_exists "${HOME}/.config/broot/launcher/bash/br"
 source_if_exists "${BMA_HOME:-$HOME/.bash-my-aws}/aliases"
 source_if_exists "${HOME}/.inshellisense/key-bindings.zsh"
 source_if_exists "${HOME}/.envio/setenv.sh"
+source_if_exists "${HOME}/.aliases"
 
 command -v atuin >> /dev/null && eval "$(atuin init zsh)"
 

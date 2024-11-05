@@ -1,3 +1,5 @@
+# Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 function source_if_exists() {
   if [[ -f $1 ]]; then
     source $1
@@ -70,8 +72,12 @@ source_if_exists "${HOME}/.agent-bridge.sh"
 source_if_exists "${HOME}/.config/broot/launcher/bash/br"
 source_if_exists "${BMA_HOME:-$HOME/.bash-my-aws}/aliases"
 source_if_exists "${HOME}/.inshellisense/key-bindings.zsh"
+source_if_exists "${HOME}/.envio/setenv.sh"
 
 command -v atuin >> /dev/null && eval "$(atuin init zsh)"
+
+# Command to tag and create a new GitHub release
+ghrel() { git tag "$1" && git push origin "$1" && gh release create "$1" --title "${2:-$1}" --notes "${3:-"Release of $1"}"; }
 
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
@@ -79,3 +85,5 @@ compinit -d ~/.cache/zcompdump
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
